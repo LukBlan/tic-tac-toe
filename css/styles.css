@@ -1,0 +1,48 @@
+/* ===============
+    Global Styles
+   =============== */
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red */
+}
+
+html {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ===============
+    Layout
+   =============== */
+
+.gameBoard {
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  font-size: 3rem;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  justify-content: center;
+}
+
+.gameBoard > div {
+  border: 1px solid;
+  padding: 10px 15px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
