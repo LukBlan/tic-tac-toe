@@ -22,9 +22,9 @@ body {
   gap: 10px;
 }
 
-/* ===============
+/* ========
     Layout
-   =============== */
+   ======== */
 
 .gameBoard {
   background-color: white;
@@ -38,11 +38,43 @@ body {
 
 .gameBoard > div {
   border: 1px solid;
-  padding: 10px 15px;
+  padding: 10px 25px;
+  min-height: 5rem;
+  min-width: 5rem;
 }
 
+.gameBoard > div:nth-child(3n+1) {
+  border-left: none;
+}
+
+.gameBoard > div:nth-child(n+7) {
+  border-bottom: none;
+}
+
+.gameBoard > div:nth-child(-n+3) {
+  border-top: none;
+}
+
+.gameBoard > div:nth-child(3n+3) {
+  border-right: none;
+}
 .menu {
   display: flex;
   justify-content: center;
   gap: 10px;
+}
+
+/* ============
+    Components
+   ============ */
+    /* ---------
+        Buttons
+       --------- */
+
+button {
+  font-weight: bold;
+  color: white;
+  border: none;
+  background-color: blue;
+  padding: 6px 10px;
 }
