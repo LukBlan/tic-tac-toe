@@ -7,6 +7,12 @@
   const ROW = 3;
   const COLUMN = 3;
 
+  pubSub.subscribe("startGame", createGame)
+
+  function createGame() {
+    createGameBoard();
+  }
+
   function createGameBoard() {
     for (let i = 0; i < ROW; i++) {
       gameBoard.push([]);
@@ -15,7 +21,4 @@
       }
     }
   }
-
-  createGameBoard()
-  pubSub.emit("newBoardState", gameBoard);
 })()
