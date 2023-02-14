@@ -1,17 +1,34 @@
 const elementsFactory = (function() {
 
   function createNewGameScreen() {
-    const container = createElement("div", "new-game-screen", null)
-    const playersBox = playerBox.getPlayersBox();
-    container.append(playersBox.player1)
-    container.append(playersBox.player2)
+    const container = createElement("div", "new-game-screen", null);
+    const getReadyText = createElement("h1", "new-game-title", "Get Ready For The Next Battle");
+    const playersBox = createPlayerSection();
+    const readyButton = createElement("div", "ready-button", "Ready!");
+    container.append(getReadyText);
+    container.append(playersBox);
+    container.append(readyButton);
+
     return container;
   }
 
-  function newPlayerBox(className) {
-    const container = createElement("div", className, null);
+  function createPlayerSection() {
+    const container = createElement("div", "new-game-players", null)
+    const playersBox = playerBox.getPlayersBox();
+    const vsElement = createElement("p", null, "VS");
+    container.append(playersBox.player1);
+    container.append(vsElement);
+    container.append(playersBox.player2);
+    return container;
+  }
+
+  function newPlayerBox() {
+    const container = createElement("div", "player", null);
     const playerType = createElement("h2", "player-type", "Player");
+    const playerIcon = createElement("img", "player-icon", null);
+    playerIcon.src = "./../img/account.svg"
     container.append(playerType);
+    container.append(playerIcon);
     return container;
   }
 
@@ -20,7 +37,7 @@ const elementsFactory = (function() {
     if (elementClass !== null) {
       newElement.classList.add(elementClass);
     }
-    if (elementClass !== null) {
+    if (elementText !== null) {
       newElement.innerText = elementText;
     }
     return newElement;

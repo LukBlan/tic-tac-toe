@@ -16,6 +16,7 @@ html {
 }
 
 body {
+  width: 100vw;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -28,14 +29,28 @@ body {
    ======== */
 
 .gameBoard {
+  position: relative;
   background-color: white;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+
   font-size: 3rem;
   padding: 10px;
   display: grid;
   grid-template-columns: min-content min-content min-content;
   justify-content: center;
+
 }
+
+.gameBoard::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
 
 .gameBoard > div {
   border: 1px solid;
@@ -60,6 +75,7 @@ body {
 .gameBoard > div:nth-child(3n+3) {
   border-right: none;
 }
+
 .menu {
   display: flex;
   justify-content: center;
@@ -67,13 +83,34 @@ body {
 }
 
 .new-game-screen {
-  display: flex;
+  font-weight: bold;
+  padding: 10px;
+  background-color: white;
+  display: grid;
+  justify-items: center;
   gap: 30px;
-  box-shadow: 0 0 0 110vh black;
+  box-shadow: 0 0 6px 1px white, 0 0 0 110vh black;
   position: absolute;
   top: 30%;
-  left: 30%;
-  z-index: 1;
+  left: 35%;
+}
+
+.new-game-title {
+  text-shadow: 0 0 1px black;
+  color: goldenrod;
+  white-space: nowrap;
+}
+
+.new-game-players {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.player {
+  border: 1px solid black;
+  padding: 10px;
 }
 
 /* ============
@@ -89,4 +126,11 @@ button {
   border: none;
   background-color: blue;
   padding: 6px 10px;
+}
+
+.ready-button {
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
 }

@@ -1,6 +1,6 @@
 const playerBox = (function() {
-  const player1Box = elementsFactory.newPlayerBox("player1");
-  const player2Box = elementsFactory.newPlayerBox("player2");
+  const player1Box = elementsFactory.newPlayerBox();
+  const player2Box = elementsFactory.newPlayerBox();
 
   function getPlayersBox() {
     return {player1: player1Box, player2: player2Box}
