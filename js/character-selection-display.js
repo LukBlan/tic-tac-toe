@@ -10,14 +10,14 @@
 
   function renderCharacterSelectionScreen() {
     characterSelectionMusic.currentTime = 0;
-    characterSelectionMusic.volume = 0.05;
+    characterSelectionMusic.volume = 1;
     characterSelectionMusic.play();
     document.body.append(characterSelectionScreen);
   }
 
   function startGame() {
     characterSelectionMusic.pause();
-    getReadyAudio.volume = 0.2;
+    getReadyAudio.volume = 1;
     getReadyAudio.play();
     document.body.removeChild(characterSelectionScreen);
     pubSub.emit("startGame", null);
