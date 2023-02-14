@@ -1,10 +1,10 @@
 const elementsFactory = (function() {
 
-  function createNewGameScreen() {
+  function getCharacterSelectionScreen() {
     const container = createElement("div", "new-game-screen", null);
     const getReadyText = createElement("h1", "new-game-title", "Get Ready For The Next Battle");
     const playersBox = createPlayerSection();
-    const readyButton = createElement("button", "ready-button", "Ready!");
+    const readyButton = createElement("button", "ready-button", "Fight!");
     container.append(getReadyText);
     container.append(playersBox);
     container.append(readyButton);
@@ -66,5 +66,9 @@ const elementsFactory = (function() {
     return newElement;
   }
 
-  return {createNewGameScreen, newPlayerBox, newOpponentBox}
+  function getStartGameScreen() {
+    return createElement("button", "start-game-button", "Start Game");
+  }
+
+  return {getCharacterSelectionScreen, newPlayerBox, newOpponentBox, getStartGameScreen}
 })()
