@@ -32,11 +32,11 @@ const elementsFactory = (function() {
   }
 
   function newPlayerBox() {
-    const container = createElement("div", "player", null);
+    const container = createElement("div", "player-section", null);
     const playerType = createElement("h2", "player-type", "Player");
     const playerIcon = createElement("img", "player-icon", null);
     const inputSection = createInputNameSection();
-    playerIcon.src = "./../img/account.svg"
+    playerIcon.src = "./img/account.svg"
     container.append(playerType);
     container.append(playerIcon);
     container.append(inputSection);
@@ -47,8 +47,9 @@ const elementsFactory = (function() {
     const container = newPlayerBox();
     const leftArrow = createElement("img", "left-arrow", null)
     const rightArrow = createElement("img", "right-arrow", null)
-    leftArrow.src = "./../img/arrow-left-bold.svg"
-    rightArrow.src = "./../img/arrow-right-bold.svg"
+    leftArrow.classList.add("hide-element")
+    leftArrow.src = "./img/arrow-left-bold.svg"
+    rightArrow.src = "./img/arrow-right-bold.svg"
     container.append(leftArrow)
     container.append(rightArrow)
     return container;

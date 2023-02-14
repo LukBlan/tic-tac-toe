@@ -107,13 +107,13 @@ body {
   gap: 20px;
 }
 
-.player {
+.player-section {
   position: relative;
   display: flex;
   text-align: center;
   flex-direction: column;
-  border: 1px solid black;
   padding: 10px;
+  box-shadow: 0 0 2px rgb(0 0 0 / 50%);
 }
 
 .player-name-section {
