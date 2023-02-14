@@ -1,3 +1,15 @@
+/* =======
+    Fonts
+   ======= */
+
+/* Knewave */
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+/*
+Archivo Black
+ */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+
 /* ===============
     Global Styles
    =============== */
@@ -7,6 +19,7 @@
   margin: 0;
   box-sizing: border-box;
   /* outline: 1px solid red */
+  user-select: none;
 }
 
 html {
@@ -77,8 +90,8 @@ body {
   gap: 30px;
   box-shadow: 0 0 6px 1px white, 0 0 0 110vh black;
   position: absolute;
-  top: 30%;
-  left: 35%;
+  top: 15%;
+  left: 30%;
 }
 
 .new-game-title {
@@ -95,9 +108,54 @@ body {
 }
 
 .player {
+  position: relative;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
   border: 1px solid black;
   padding: 10px;
 }
+
+.player-name-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-name-section > input {
+  cursor: pointer;
+  text-align: center;
+  width: 70%;
+  border: none;
+  outline: none;
+}
+
+.player-name-section > label {
+  border-top: 1px solid black;
+  width: 50%;
+}
+
+.new-game-vs {
+  font-family: 'Knewave', cursive;
+  font-size: 2rem;
+}
+
+.left-arrow,
+.right-arrow {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 5%;
+}
+
+.right-arrow {
+  right: 5%;
+}
+
+.hide-element {
+  transform: scale(0);
+}
+
 
 /* ============
     Components
@@ -107,6 +165,7 @@ body {
        --------- */
 
 button {
+  cursor: pointer;
   font-weight: bold;
   color: white;
   border: none;
@@ -115,8 +174,10 @@ button {
 }
 
 .ready-button {
+  font-family: 'Archivo Black', sans-serif;
   background-color: blue;
   color: white;
   font-weight: bold;
   padding: 8px 12px;
+  box-shadow: 0 0 1px black;
 }
