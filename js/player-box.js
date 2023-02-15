@@ -51,7 +51,6 @@ const playerBox = (function() {
     } else {
       player1Image.src = imgSrc;
       player1CharacterName.innerText = characterName;
-      console.log(getCharacterName(imgSrc))
     }
   }
 
