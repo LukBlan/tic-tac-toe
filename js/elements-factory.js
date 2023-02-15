@@ -36,7 +36,7 @@ const elementsFactory = (function() {
     const playerType = createElement("h2", "player-type", "Player");
     const playerIcon = createElement("img", "player-icon", null);
     const inputSection = createInputNameSection();
-    playerIcon.src = "./img/account.svg"
+    playerIcon.src = "./img/characters-icons/alex.png"
     container.append(playerType);
     container.append(playerIcon);
     container.append(inputSection);
@@ -67,8 +67,34 @@ const elementsFactory = (function() {
   }
 
   function getStartGameScreen() {
-    return createElement("button", "start-game-button", "Start Game");
+    const container = createElement("div", "start-game-screen", null);
+    const startGameButton = createElement("button", "start-game-button", "Start Game")
+    container.append(startGameButton)
+    return container;
   }
 
-  return {getCharacterSelectionScreen, newPlayerBox, newOpponentBox, getStartGameScreen}
+  function getGameSection() {
+    const gameBoard = createElement("div", "game-board", null);
+    createGameBoard(gameBoard)
+    return gameBoard;
+  }
+
+  function createGameBoard(gameBoard) {
+    const boardSize = gameState.ROW * gameState.COLUMN;
+    for (let i = 0; i < boardSize; i++) {
+      gameBoard.append(createElement("div", null, null));
+    }
+    return boardSize;
+  }
+
+  function getMenu() {
+    const menu = createElement("div", "menu", null);
+    const newGameButton = createElement("button", "character-selection-button", "New Game");
+    const resetButton = createElement("button", null, "Reset");
+    menu.append(newGameButton);
+    menu.append(resetButton);
+    return menu;
+  }
+
+  return {getCharacterSelectionScreen, newPlayerBox, newOpponentBox, getStartGameScreen, getGameSection, getMenu}
 })()
