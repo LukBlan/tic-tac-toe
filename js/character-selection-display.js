@@ -1,7 +1,7 @@
 (function characterSelectionDisplay() {
-  const characterSelectionScreen = elementsFactory.getCharacterSelectionScreen();
-  const charactersBar = characterSelectionScreen.querySelector(".character-bar");
-  const fightButton = characterSelectionScreen.querySelector("button");
+  const characterSelectionBox = elementsFactory.getPlayersChoiceSection();
+  const charactersBar = elementsFactory.getCharactersBar()
+  const fightButton = elementsFactory.getReadyButton();
   const getReadyAudio = new Audio('./sounds/get-ready.mp3');
   const characterSelectionMusic = new Audio('./sounds/character-selection.mp3');
 
@@ -16,6 +16,7 @@
   function removeCharacterSelectionEvent() {
     charactersBar.removeEventListener("mouseover", displayCharacterOnPlayer);
     charactersBar.removeEventListener("click", selectCharacter);
+    charactersBar.removeEventListener("mouseout", removeCharacterPreview);
   }
 
   function removeCharacterPreview(event) {
@@ -45,14 +46,22 @@
     characterSelectionMusic.volume = 1;
     characterSelectionMusic.loop = true;
     characterSelectionMusic.play();
-    document.body.append(characterSelectionScreen);
+    document.body.append(characterSelectionBox);
+    document.body.append(fightButton);
+    document.body.append(charactersBar);
   }
 
   function startGame() {
     characterSelectionMusic.pause();
     getReadyAudio.volume = 1;
     getReadyAudio.play();
-    document.body.removeChild(characterSelectionScreen);
-    pubSub.emit("startGame", null);
+    fightButton.classList.add("hide-element");
+    charactersBar.classList.add("hide-element");
+    setTimeout(() => {
+      document.body.removeChild(fightButton);
+      document.body.removeChild(charactersBar);
+      document.body.removeChild(characterSelectionBox);
+      pubSub.emit("startGame", null);
+    }, 3000);
   }
 }())

@@ -1,12 +1,7 @@
 const elementsFactory = (function() {
 
-  function getCharacterSelectionScreen() {
-    const container = createElement("div", "character-selection-screen", null);
-    const characterSelectionBox = getCharacterSelectionBox()
-    const charactersBar = getCharactersBar();
-    container.append(characterSelectionBox);
-    container.append(charactersBar);
-    return container;
+  function getReadyButton() {
+    return createElement("button", "fight-button", "Fight!");
   }
 
   function getCharactersBar() {
@@ -22,18 +17,7 @@ const elementsFactory = (function() {
     return container;
   }
 
-  function getCharacterSelectionBox() {
-    const container = createElement("div", "character-selection-box", null);
-    const getReadyText = createElement("h1", "character-selection-title", "Get Ready For The Next Battle");
-    const playersBox = createPlayerSection();
-    const readyButton = createElement("button", "fight-button", "Fight!");
-    container.append(getReadyText);
-    container.append(playersBox);
-    container.append(readyButton);
-    return container;
-  }
-
-  function createPlayerSection() {
+  function getPlayersChoiceSection() {
     const container = createElement("div", "player-choice-section", null)
     const playersBox = playerBox.getPlayersBox();
     const vsElement = createElement("p", "character-selection-vs", "VS");
@@ -43,30 +27,21 @@ const elementsFactory = (function() {
     return container;
   }
 
-  function createInputNameSection() {
-    const container = createElement("div", "player-name-section", null);
-    const inputName = document.createElement("input");
-    const label = createElement("label", "player-name-label", "Name");
-    inputName.maxLength = 16;
-    container.append(inputName);
-    container.append(label);
-    return container;
-  }
-
-  function newPlayerBox() {
+  function newPlayerBox(iconBorderClass, playerName) {
     const container = createElement("div", "player-section", null);
-    const playerType = createElement("h2", "player-type", "Player");
-    const playerIcon = createElement("img", "player-icon", null);
-    const inputSection = createInputNameSection();
+    const playerType = createElement("h2", "player-type", playerName);
+    const playerIcon = createElement("img", iconBorderClass, null);
+    const characterName = createElement("p", "character-name", null);
+    playerIcon.classList.add("player-icon")
     playerIcon.src = "./img/question-mark.svg"
-    container.append(playerType);
+    container.append(characterName);
     container.append(playerIcon);
-    container.append(inputSection);
+    container.append(playerType);
     return container;
   }
 
-  function newOpponentBox() {
-    const container = newPlayerBox();
+  function newOpponentBox(iconBorderClass, playerName) {
+    const container = newPlayerBox(iconBorderClass, playerName);
     const leftArrow = createElement("img", "left-arrow", null)
     const rightArrow = createElement("img", "right-arrow", null)
     leftArrow.classList.add("hide-element")
@@ -118,5 +93,5 @@ const elementsFactory = (function() {
     return menu;
   }
 
-  return {getCharacterSelectionScreen, newPlayerBox, newOpponentBox, getStartGameScreen, getGameSection, getMenu}
+  return {getReadyButton, getCharactersBar, getPlayersChoiceSection, newPlayerBox, newOpponentBox, getStartGameScreen, getGameSection, getMenu}
 })()

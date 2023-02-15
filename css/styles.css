@@ -5,11 +5,12 @@
 /* Knewave */
 @import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
 
-/*
-Archivo Black
- */
+/* Archivo Black */
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
+
+/* Black Ops One */
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
 /* ===============
     Global Styles
    =============== */
@@ -85,6 +86,10 @@ body {
 }
 
 .player-choice-section {
+  background-color: white;
+  border: 12px ridge rgba(225,225,225);
+  border-radius: 15px;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,8 +101,8 @@ body {
   display: flex;
   text-align: center;
   flex-direction: column;
+  gap: 5px;
   padding: 10px;
-  box-shadow: 0 0 2px rgb(0 0 0 / 50%);
 }
 
 .player-name-section {
@@ -120,8 +125,19 @@ body {
 }
 
 .player-icon {
+  background-color: black;
+  border: 5px solid;
+  border-radius: 15px;
   width: 170px;
   height: 170px;
+}
+
+.red-border {
+  border-color: red;
+}
+
+.blue-border {
+  border-color: blue;
 }
 
 .character-selection-vs {
@@ -131,42 +147,61 @@ body {
 
 .left-arrow,
 .right-arrow {
+  background-color: black;
+  border: 4px outset rgb(215,215,215);
+  border-radius: 7px;
   cursor: pointer;
   width: 25px;
   height: 25px;
   position: absolute;
-  top: 5%;
+  bottom: 4%;
+}
+
+.left-arrow:active,
+.right-arrow:active {
+  border: 4px inset;
 }
 
 .right-arrow {
   right: 5%;
 }
 
+.character-name {
+  font-family: 'Black Ops One', cursive;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 1px black, -1px -1px 1px rgba(0,0,0,0.6);
+  color: #7e7e7e;
+  font-size: 2rem;
+  min-height: 2.6rem;
+}
+
 .character-bar {
+  align-self: center;
   cursor: pointer;
   display: grid;
   grid-template-columns: repeat(10, min-content);
-  border: 9px ridge rgba(225,225,225);
+  border: 8px ridge rgba(225,225,225);
   border-radius: 15px;
 }
 
 .character-bar img:nth-child(1) {
-  border-radius: 15px 0 0 0;
+  border-radius: 6px 0 0 0;
 }
 
 .character-bar img:nth-child(10) {
-  border-radius: 0 15px 0 0;
+  border-radius: 0 6px 0 0;
 }
 
 .character-bar img:nth-child(11) {
-  border-radius: 0 0 0 15px;
+  border-radius: 0 0 0 6px;
 }
 
 .character-bar img:nth-child(20) {
-  border-radius: 0 0 15px 0;
+  border-radius: 0 0 6px 0;
 }
 
 .character-bar > img {
+  border: 2px solid rgb(215,215,215);
   width: 75px;
   height: 75px;
   opacity: 0.4;
@@ -225,7 +260,7 @@ body {
 }
 
 .hide-element {
-  transform: scale(0);
+  opacity: 0;
 }
 
 
@@ -241,7 +276,6 @@ button {
   color: white;
   cursor: pointer;
   font-weight: bold;
-
   border: none;
   padding: 14px 10px;
 }
@@ -250,15 +284,12 @@ button:hover {
   background-color: #1010d2;
 }
 
-.start-game-button {
-
-}
-
 .character-selection-button {
   white-space: break-spaces;
 }
 
 .fight-button {
+  align-self: center;
   font-family: 'Archivo Black', sans-serif;
   background-color: blue;
   color: white;
