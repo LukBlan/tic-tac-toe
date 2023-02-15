@@ -1,4 +1,4 @@
-(function gameState() {
+const gameState = (function gameState() {
   const players = {
     player1: {},
     player2: {},
@@ -21,4 +21,5 @@
       }
     }
   }
+  return {ROW, COLUMN}
 })()
