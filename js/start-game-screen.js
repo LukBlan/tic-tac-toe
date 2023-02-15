@@ -1,21 +1,22 @@
 (function startGameScreen() {
-  const startGameButton = elementsFactory.getStartGameScreen()
+  const startGameScreen = elementsFactory.getStartGameScreen();
+  const startGameButton = startGameScreen.querySelector("button");
 
-  startGameButton.addEventListener("click", goToCharacterSelectionScreen)
+  startGameButton.addEventListener("click", goToCharacterSelectionScreen);
 
   function goToCharacterSelectionScreen() {
     removeEvent();
-    document.body.removeChild(startGameButton);
+    document.body.removeChild(startGameScreen);
     pubSub.emit("goToCharacterSelection", null);
   }
 
   function displayStartGameButton() {
-    document.body.append(startGameButton);
+    document.body.append(startGameScreen);
   }
 
   function removeEvent() {
-    startGameButton.removeEventListener("click", goToCharacterSelectionScreen);
+    startGameScreen.removeEventListener("click", goToCharacterSelectionScreen);
   }
 
-  displayStartGameButton()
+  displayStartGameButton();
 })()
