@@ -1,5 +1,6 @@
 (function characterSelectionDisplay() {
   const characterSelectionScreen = elementsFactory.getCharacterSelectionScreen();
+  const charactersBar = characterSelectionScreen.querySelector(".character-bar");
   const fightButton = characterSelectionScreen.querySelector("button");
   const getReadyAudio = new Audio('./sounds/get-ready.mp3');
   const characterSelectionMusic = new Audio('./sounds/character-selection.mp3');

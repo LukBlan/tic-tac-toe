@@ -29,6 +29,7 @@ html {
 }
 
 body {
+  background-color: black;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -58,17 +59,23 @@ body {
     /* ----------------------------
         Character Selection Screen
        ---------------------------- */
+
 .character-selection-screen {
+  box-shadow: 0 0 6px 1px white, 0 0 0 110vh black;
+  display: grid;
+  align-content: space-evenly;
+  height: 100vh;
+  justify-items: center;
+}
+
+.character-selection-box {
   font-weight: bold;
   padding: 10px;
   background-color: white;
   display: grid;
   justify-items: center;
   gap: 30px;
-  box-shadow: 0 0 6px 1px white, 0 0 0 110vh black;
-  position: absolute;
-  top: 15%;
-  left: 30%;
+
 }
 
 .character-selection-title {
@@ -128,6 +135,24 @@ body {
 
 .right-arrow {
   right: 5%;
+}
+
+.character-bar {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(10, min-content);
+  border: 9px ridge rgba(225,225,225);
+  border-radius: 15px;
+}
+
+.character-bar > img {
+  width: 75px;
+  height: 75px;
+  opacity: 0.5;
+}
+
+.character-bar > img:hover {
+  opacity: 1;
 }
 
     /* -------------

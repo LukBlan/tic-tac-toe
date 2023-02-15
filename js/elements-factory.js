@@ -2,6 +2,28 @@ const elementsFactory = (function() {
 
   function getCharacterSelectionScreen() {
     const container = createElement("div", "character-selection-screen", null);
+    const characterSelectionBox = getCharacterSelectionBox()
+    const charactersBar = getCharactersBar();
+    container.append(characterSelectionBox);
+    container.append(charactersBar);
+    return container;
+  }
+
+  function getCharactersBar() {
+    const container = createElement("div", "character-bar", null);
+    const charactersNames = ["alex", "roger", "alisa", "mokujin", "d-jin", "nina", "a-king",
+      "asuka", "ganryu", "king", "marshall", "xiaoyu", "jin", "kazuya", "kuma", "miharu",
+      "panda", "jinpachi", "jaycee", "paul"]
+    charactersNames.forEach(name => {
+      const image = createElement("img", null, null);
+      image.src = `./img/characters-icons/${name}.png`
+      container.append(image);
+    })
+    return container;
+  }
+
+  function getCharacterSelectionBox() {
+    const container = createElement("div", "character-selection-box", null);
     const getReadyText = createElement("h1", "character-selection-title", "Get Ready For The Next Battle");
     const playersBox = createPlayerSection();
     const readyButton = createElement("button", "fight-button", "Fight!");
@@ -36,7 +58,7 @@ const elementsFactory = (function() {
     const playerType = createElement("h2", "player-type", "Player");
     const playerIcon = createElement("img", "player-icon", null);
     const inputSection = createInputNameSection();
-    playerIcon.src = "./img/characters-icons/alex.png"
+    playerIcon.src = "./img/question-mark.svg"
     container.append(playerType);
     container.append(playerIcon);
     container.append(inputSection);
