@@ -119,6 +119,11 @@ body {
   width: 50%;
 }
 
+.player-icon {
+  width: 170px;
+  height: 170px;
+}
+
 .character-selection-vs {
   font-family: 'Knewave', cursive;
   font-size: 2rem;
@@ -164,11 +169,15 @@ body {
 .character-bar > img {
   width: 75px;
   height: 75px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .character-bar > img:hover {
   opacity: 1;
+}
+
+.selected-character {
+  opacity: 1 !important;
 }
 
     /* -------------
