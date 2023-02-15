@@ -58,7 +58,7 @@ body {
     /* ----------------------------
         Character Selection Screen
        ---------------------------- */
-.new-game-screen {
+.character-selection-screen {
   font-weight: bold;
   padding: 10px;
   background-color: white;
@@ -71,13 +71,13 @@ body {
   left: 30%;
 }
 
-.new-game-title {
+.character-selection-title {
   text-shadow: 0 0 1px black;
   color: goldenrod;
   white-space: nowrap;
 }
 
-.new-game-players {
+.player-choice-section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,7 +112,7 @@ body {
   width: 50%;
 }
 
-.new-game-vs {
+.character-selection-vs {
   font-family: 'Knewave', cursive;
   font-size: 2rem;
 }
@@ -187,12 +187,17 @@ body {
        --------- */
 
 button {
+  background-color: blue;
+  color: white;
   cursor: pointer;
   font-weight: bold;
-  color: white;
+
   border: none;
-  background-color: blue;
   padding: 14px 10px;
+}
+
+button:hover {
+  background-color: #1010d2;
 }
 
 .start-game-button {
@@ -203,7 +208,7 @@ button {
   white-space: break-spaces;
 }
 
-.ready-button {
+.fight-button {
   font-family: 'Archivo Black', sans-serif;
   background-color: blue;
   color: white;
