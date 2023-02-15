@@ -185,7 +185,6 @@ body {
 
 .character-bar {
   align-self: center;
-  cursor: pointer;
   display: grid;
   grid-template-columns: repeat(10, min-content);
   border: 8px ridge rgba(225,225,225);
@@ -213,6 +212,7 @@ body {
   width: 75px;
   height: 75px;
   opacity: 0.4;
+  cursor: pointer;
 }
 
 .character-bar > img:hover {
