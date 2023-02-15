@@ -1,7 +1,7 @@
 (function characterSelectionDisplay() {
   const characterSelectionBox = elementsFactory.getPlayersChoiceSection();
   const charactersBar = elementsFactory.getCharactersBar()
-  const fightButton = elementsFactory.getReadyButton();
+  const fightButton = charactersBar.querySelector("button");
   const getReadyAudio = new Audio('./sounds/get-ready.mp3');
   const characterSelectionMusic = new Audio('./sounds/character-selection.mp3');
 
@@ -47,7 +47,6 @@
     characterSelectionMusic.loop = true;
     characterSelectionMusic.play();
     document.body.append(characterSelectionBox);
-    document.body.append(fightButton);
     document.body.append(charactersBar);
   }
 
@@ -58,7 +57,6 @@
     fightButton.classList.add("hide-element");
     charactersBar.classList.add("hide-element");
     setTimeout(() => {
-      document.body.removeChild(fightButton);
       document.body.removeChild(charactersBar);
       document.body.removeChild(characterSelectionBox);
       pubSub.emit("startGame", null);

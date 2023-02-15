@@ -1,19 +1,19 @@
 const elementsFactory = (function() {
 
-  function getReadyButton() {
-    return createElement("button", "fight-button", "Fight!");
-  }
-
   function getCharactersBar() {
-    const container = createElement("div", "character-bar", null);
+    const container = createElement("div", "character-bar-section", null);
+    const readyButton = createElement("button", "fight-button", "Fight!");
+    const characterBar = createElement("div", "character-bar", null);
     const charactersNames = ["alex", "roger", "alisa", "mokujin", "d-jin", "nina", "a-king",
       "asuka", "ganryu", "king", "marshall", "xiaoyu", "jin", "kazuya", "kuma", "miharu",
       "panda", "jinpachi", "jaycee", "paul"]
     charactersNames.forEach(name => {
       const image = createElement("img", null, null);
       image.src = `./img/characters-icons/${name}.png`
-      container.append(image);
+      characterBar.append(image);
     })
+    container.append(characterBar);
+    container.append(readyButton);
     return container;
   }
 
@@ -93,5 +93,5 @@ const elementsFactory = (function() {
     return menu;
   }
 
-  return {getReadyButton, getCharactersBar, getPlayersChoiceSection, newPlayerBox, newOpponentBox, getStartGameScreen, getGameSection, getMenu}
+  return {getCharactersBar, getPlayersChoiceSection, newPlayerBox, newOpponentBox, getStartGameScreen, getGameSection, getMenu}
 })()
