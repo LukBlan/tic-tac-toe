@@ -1,6 +1,6 @@
 (function boardDisplay() {
-  const gameBoardElement = document.querySelector(".gameBoard");
-  const boardCells = Array.from(gameBoardElement.children);
+  const gameBoard = gameSection.board;
+  const boardCells = Array.from(gameBoard.children);
 
   pubSub.subscribe("newBoardState", renderBoard);
 
