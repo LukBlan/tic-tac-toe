@@ -145,6 +145,22 @@ body {
   border-radius: 15px;
 }
 
+.character-bar img:nth-child(1) {
+  border-radius: 15px 0 0 0;
+}
+
+.character-bar img:nth-child(10) {
+  border-radius: 0 15px 0 0;
+}
+
+.character-bar img:nth-child(11) {
+  border-radius: 0 0 0 15px;
+}
+
+.character-bar img:nth-child(20) {
+  border-radius: 0 0 15px 0;
+}
+
 .character-bar > img {
   width: 75px;
   height: 75px;

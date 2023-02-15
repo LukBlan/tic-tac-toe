@@ -12,6 +12,7 @@
   function renderCharacterSelectionScreen() {
     characterSelectionMusic.currentTime = 0;
     characterSelectionMusic.volume = 1;
+    characterSelectionMusic.loop = true;
     characterSelectionMusic.play();
     document.body.append(characterSelectionScreen);
   }
