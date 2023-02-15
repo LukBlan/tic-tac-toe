@@ -30,7 +30,6 @@ html {
 
 body {
   width: 100vw;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,47 +39,25 @@ body {
 /* ========
     Layout
    ======== */
+    /* -------------------
+        Start Game Screen
+       ------------------- */
 
-.gameBoard {
-  position: relative;
-  background-color: white;
-  font-size: 3rem;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: min-content min-content min-content;
-  justify-content: center;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5);
-}
-
-.gameBoard > div {
-  border: 1px solid;
-  padding: 10px 25px;
-  min-height: 5rem;
-  min-width: 5rem;
-}
-
-.gameBoard > div:nth-child(3n+1) {
-  border-left: none;
-}
-
-.gameBoard > div:nth-child(n+7) {
-  border-bottom: none;
-}
-
-.gameBoard > div:nth-child(-n+3) {
-  border-top: none;
-}
-
-.gameBoard > div:nth-child(3n+3) {
-  border-right: none;
-}
-
-.menu {
+.start-game-screen {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  padding: 40px;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  background: url(../img/tekken-background.jpg) no-repeat;
+  background-size: cover;
 }
 
+    /* ----------------------------
+        Character Selection Screen
+       ---------------------------- */
 .new-game-screen {
   font-weight: bold;
   padding: 10px;
@@ -153,6 +130,50 @@ body {
   right: 5%;
 }
 
+    /* -------------
+        Game Screen
+   -   ------------ */
+
+.game-board {
+  position: relative;
+  background-color: white;
+  font-size: 3rem;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  justify-content: center;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.game-board > div {
+  border: 1px solid;
+  padding: 10px 25px;
+  min-height: 5rem;
+  min-width: 5rem;
+}
+
+.game-board > div:nth-child(3n+1) {
+  border-left: none;
+}
+
+.game-board > div:nth-child(n+7) {
+  border-bottom: none;
+}
+
+.game-board > div:nth-child(-n+3) {
+  border-top: none;
+}
+
+.game-board > div:nth-child(3n+3) {
+  border-right: none;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .hide-element {
   transform: scale(0);
 }
@@ -175,9 +196,7 @@ button {
 }
 
 .start-game-button {
-  box-shadow: 0 0 0 100vh black;
-  position: absolute;
-  align-self: center;
+
 }
 
 .character-selection-button {
