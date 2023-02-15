@@ -175,6 +175,12 @@ body {
   min-height: 2.6rem;
 }
 
+.character-bar-section {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
 .character-bar {
   align-self: center;
   cursor: pointer;
