@@ -54,10 +54,10 @@
     characterSelectionMusic.pause();
     getReadyAudio.volume = 1;
     getReadyAudio.play();
-    fightButton.classList.add("hide-element");
-    charactersBar.classList.add("hide-element");
+    document.body.removeChild(charactersBar);
+    characterSelectionBox.classList.add("huge-padding");
     setTimeout(() => {
-      document.body.removeChild(charactersBar);
+
       document.body.removeChild(characterSelectionBox);
       pubSub.emit("startGame", null);
     }, 3000);
