@@ -1,6 +1,6 @@
 (function characterSelectionDisplay() {
-  const characterSelectionBox = elementsFactory.getPlayersChoiceSection();
-  const charactersBar = elementsFactory.getCharactersBar()
+  const characterSelectionBox = characterSelectionFactory.getPlayersChoiceSection();
+  const charactersBar = characterSelectionFactory.getCharactersBar()
   const fightButton = charactersBar.querySelector("button");
   const leftArrow = characterSelectionBox.querySelector(".left-arrow");
   const rightArrow = characterSelectionBox.querySelector(".right-arrow");

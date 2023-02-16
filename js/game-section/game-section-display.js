@@ -1,6 +1,6 @@
-const gameSection = (function gameSection() {
-  const board = elementsFactory.getGameSection();
-  const menu = elementsFactory.getMenu();
+const gameSectionDisplay = (function gameSection() {
+  const board = gameSectionFactory.getGameSection();
+  const menu = gameSectionFactory.getMenu();
 
   pubSub.subscribe("startGame", renderGameSection);
 
