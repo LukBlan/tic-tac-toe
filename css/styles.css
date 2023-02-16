@@ -152,7 +152,7 @@ body {
   width: 25px;
   height: 25px;
   position: absolute;
-  bottom: 2%;
+  bottom: 3%;
 }
 
 .left-arrow:active,
@@ -181,7 +181,7 @@ body {
 
 .player-type {
   font-size: 1.5rem;
-  min-height: 2rem;
+  min-height: 2.2rem;
 }
 
 .character-bar-section {
