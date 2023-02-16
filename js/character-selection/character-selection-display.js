@@ -2,8 +2,6 @@
   const characterSelectionBox = characterSelectionFactory.getPlayersChoiceSection();
   const charactersBar = characterSelectionFactory.getCharactersBar()
   const fightButton = charactersBar.querySelector("button");
-  const leftArrow = characterSelectionBox.querySelector(".left-arrow");
-  const rightArrow = characterSelectionBox.querySelector(".right-arrow");
 
   pubSub.subscribe("goToCharacterSelection", renderCharacterSelectionScreen);
   pubSub.subscribe("lock-character-selection", removeCharacterSelectionEvent);
@@ -49,9 +47,8 @@
 
   function startGame() {
     pubSub.emit("playGetReadyAudio", null);
+    pubSub.emit("hide-arrows", null);
     document.body.removeChild(charactersBar);
-    leftArrow.classList.add("hide-element");
-    rightArrow.classList.add("hide-element");
     characterSelectionBox.classList.add("huge-padding");
     setTimeout(() => {
       document.body.removeChild(characterSelectionBox);
