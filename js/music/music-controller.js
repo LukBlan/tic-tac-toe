@@ -1,4 +1,4 @@
-// Responsible for Stopping and Playing Music
+// Responsible for Stopping, Muting and Playing Music
 (function musicController() {
   let muteAudio = false;
   const getReady = new Audio('./sounds/get-ready.mp3');

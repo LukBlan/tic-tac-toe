@@ -1,6 +1,6 @@
 // Responsible for Display on screen DOM elements related with Music
 (function musicElementDisplay() {
-  const toggleMusicButton = musicElementFactory.getMusicButton();
+  const toggleMusicButton = musicFactory.getMusicButton();
   const musicImgPath = toggleMusicButton.querySelector("path");
 
   toggleMusicButton.addEventListener("click", toggleMusic)
