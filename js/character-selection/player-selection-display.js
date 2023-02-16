@@ -1,6 +1,6 @@
-const playerBox = (function() {
-  const player1Box = elementsFactory.newPlayerBox("blue-border", "Player 1");
-  const player2Box = elementsFactory.newOpponentBox("red-border", "Player 2");
+const playerSelectionDisplay = (function() {
+  const player1Box = playerSelectionFactory.newPlayerBox("blue-border", "Player 1");
+  const player2Box = playerSelectionFactory.newOpponentBox("red-border", "Player 2");
   const player1Image = player1Box.querySelector("img");
   const player2Image = player2Box.querySelector("img");
   const player1CharacterName = player1Box.querySelector(".character-name");
@@ -16,7 +16,7 @@ const playerBox = (function() {
     const regularExpression = /([\w-]+).png/
     const name = imgSrc.match(regularExpression)[1];
     return name.replaceAll("-", " ");
-  } 
+  }
 
   function removePreview() {
     if (player1CharacterSelected) {

@@ -1,5 +1,5 @@
 (function startGameScreen() {
-  const startGameScreen = elementsFactory.getStartGameScreen();
+  const startGameScreen = startGameFactory.getStartGameScreen();
   const startGameButton = startGameScreen.querySelector("button");
 
   startGameButton.addEventListener("click", goToCharacterSelectionScreen);

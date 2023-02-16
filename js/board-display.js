@@ -1,5 +1,5 @@
 (function boardDisplay() {
-  const gameBoard = gameSection.board;
+  const gameBoard = gameSectionDisplay.board;
   const boardCells = Array.from(gameBoard.children);
 
   pubSub.subscribe("newBoardState", renderBoard);
