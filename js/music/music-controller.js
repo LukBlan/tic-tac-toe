@@ -15,6 +15,7 @@
   }
 
   function playCharacterSelection() {
+    characterSelection.muted = muteAudio;
     characterSelection.currentTime = 0;
     characterSelection.volume = 1;
     characterSelection.loop = true;
@@ -24,6 +25,7 @@
 
   function playGetReady() {
     characterSelection.pause();
+    getReady.muted = muteAudio;
     getReady.currentTime = 0;
     getReady.volume = 1;
     currentMusic = getReady
