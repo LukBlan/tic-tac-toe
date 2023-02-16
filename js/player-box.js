@@ -16,7 +16,7 @@ const playerBox = (function() {
     const regularExpression = /([\w-]+).png/
     const name = imgSrc.match(regularExpression)[1];
     return name.replaceAll("-", " ");
-  }
+  } 
 
   function removePreview() {
     if (player1CharacterSelected) {
