@@ -130,11 +130,11 @@ body {
 }
 
 .red-border {
-  border-color: red;
+  border-color: red !important;
 }
 
 .blue-border {
-  border-color: blue;
+  border-color: blue !important;
 }
 
 .character-selection-vs {

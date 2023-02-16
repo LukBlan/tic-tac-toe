@@ -6,10 +6,21 @@ const playerSelectionDisplay = (function() {
   const player1CharacterName = player1Box.querySelector(".character-name");
   const player2CharacterName = player2Box.querySelector(".character-name");
   let player1CharacterSelected = false;
+  let player2CharacterSelected = false;
 
   pubSub.subscribe("characterPreview", displayCharacterPreview);
   pubSub.subscribe("characterSelected", selectCharacter);
   pubSub.subscribe("removeCharacterPreview", removePreview);
+  pubSub.subscribe("resetPlayerChoice", resetPlayer);
+
+  function resetPlayer(imgSrc) {
+    if (imgSrc === player1Image.src) {
+      player1CharacterSelected = false;
+    } else {
+      player2CharacterSelected = false;
+    }
+    removePreview();
+  }
 
   function getCharacterName(imgSrc) {
     const regularExpression = /([\w-]+).png/
@@ -18,37 +29,45 @@ const playerSelectionDisplay = (function() {
   }
 
   function removePreview() {
-    if (player1CharacterSelected) {
-      player2CharacterName.innerText = "";
-      player2Image.src = "./img/question-mark.svg";
-    } else {
+    if (!player1CharacterSelected) {
       player1CharacterName.innerText = "";
       player1Image.src = "./img/question-mark.svg";
+    }
+    if (!player2CharacterSelected){
+      player2CharacterName.innerText = "";
+      player2Image.src = "./img/question-mark.svg";
     }
   }
 
   function selectCharacter(imgSrc) {
     const characterName = getCharacterName(imgSrc);
-    if (player1CharacterSelected) {
-      player2CharacterName.innerText = characterName;
-      player2Image.src = imgSrc;
-      pubSub.emit("lock-character-selection", null);
-    } else {
+    if (!player1CharacterSelected) {
       player1CharacterName.innerText = characterName;
       player1Image.src = imgSrc;
       player1CharacterSelected = true;
+    } else if (!player2CharacterSelected) {
+      player2CharacterName.innerText = characterName;
+      player2Image.src = imgSrc;
+      player2CharacterSelected = true;
     }
   }
 
   function displayCharacterPreview(imgSrc) {
-    const characterName = getCharacterName(imgSrc);
-    if (player1CharacterSelected) {
-      player2CharacterName.innerText = characterName;
-      player2Image.src = imgSrc;
-
+    if (imgSrc.includes("question")) {
+      if (player1CharacterSelected) {
+        player2Image.src = "./img/" + "question-mark.svg";
+      } else {
+        player1Image.src = "./img/" + "question-mark.svg";
+      }
     } else {
-      player1Image.src = imgSrc;
-      player1CharacterName.innerText = characterName;
+      const characterName = getCharacterName(imgSrc);
+      if (player1CharacterSelected) {
+        player2CharacterName.innerText = characterName;
+        player2Image.src = imgSrc;
+      } else {
+        player1Image.src = imgSrc;
+        player1CharacterName.innerText = characterName;
+      }
     }
   }
 

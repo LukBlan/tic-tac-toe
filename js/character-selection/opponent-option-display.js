@@ -15,7 +15,7 @@ const opponentOptionDisplay = (function() {
   }
 
   function getNewPlayer2Type(event) {
-    const currenType = player2Box.innerText;
+    const currenType = player2Type.innerText;
     const currenTypePosition = player2Options.indexOf(currenType);
     const newTypePosition = rotation(event.target, currenTypePosition);
     const newType = player2Options[newTypePosition];
