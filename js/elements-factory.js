@@ -44,7 +44,6 @@ const elementsFactory = (function() {
     const container = newPlayerBox(iconBorderClass, playerName);
     const leftArrow = createElement("img", "left-arrow", null)
     const rightArrow = createElement("img", "right-arrow", null)
-    leftArrow.classList.add("hide-element")
     leftArrow.src = "./img/arrow-left-bold.svg"
     rightArrow.src = "./img/arrow-right-bold.svg"
     container.append(leftArrow)

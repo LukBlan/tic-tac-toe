@@ -2,8 +2,8 @@
   const characterSelectionBox = elementsFactory.getPlayersChoiceSection();
   const charactersBar = elementsFactory.getCharactersBar()
   const fightButton = charactersBar.querySelector("button");
-  const getReadyAudio = new Audio('./sounds/get-ready.mp3');
-  const characterSelectionMusic = new Audio('./sounds/character-selection.mp3');
+  const leftArrow = characterSelectionBox.querySelector(".left-arrow");
+  const rightArrow = characterSelectionBox.querySelector(".right-arrow");
 
   pubSub.subscribe("goToCharacterSelection", renderCharacterSelectionScreen);
   pubSub.subscribe("lock-character-selection", removeCharacterSelectionEvent);
@@ -42,19 +42,16 @@
   }
 
   function renderCharacterSelectionScreen() {
-    characterSelectionMusic.currentTime = 0;
-    characterSelectionMusic.volume = 1;
-    characterSelectionMusic.loop = true;
-    characterSelectionMusic.play();
+    pubSub.emit("playCharacterSelectionMusic", null);
     document.body.append(characterSelectionBox);
     document.body.append(charactersBar);
   }
 
   function startGame() {
-    characterSelectionMusic.pause();
-    getReadyAudio.volume = 1;
-    getReadyAudio.play();
+    pubSub.emit("playGetReadyAudio", null);
     document.body.removeChild(charactersBar);
+    leftArrow.classList.add("hide-element");
+    rightArrow.classList.add("hide-element");
     characterSelectionBox.classList.add("huge-padding");
     setTimeout(() => {
       document.body.removeChild(characterSelectionBox);

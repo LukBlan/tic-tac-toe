@@ -103,8 +103,7 @@ body {
   display: flex;
   text-align: center;
   flex-direction: column;
-  gap: 5px;
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .player-name-section {
@@ -156,7 +155,7 @@ body {
   width: 25px;
   height: 25px;
   position: absolute;
-  bottom: 6%;
+  bottom: 2%;
 }
 
 .left-arrow:active,
@@ -319,4 +318,18 @@ button:hover {
   font-weight: bold;
   padding: 8px 12px;
   box-shadow: 0 0 1px black;
+}
+
+.music-button {
+  background-color: white;
+  box-shadow: 0 0 3px white;
+  border: 3px outset white;
+  fill: black;
+  cursor: pointer;
+  border-radius: 14px;
+  top: 5%;
+  right: 5%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
 }

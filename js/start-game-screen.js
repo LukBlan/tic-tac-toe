@@ -8,6 +8,7 @@
     removeEvent();
     document.body.removeChild(startGameScreen);
     pubSub.emit("goToCharacterSelection", null);
+    pubSub.emit("displayMusicButton", null);
   }
 
   function displayStartGameButton() {
