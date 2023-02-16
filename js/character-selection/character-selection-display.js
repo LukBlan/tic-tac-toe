@@ -93,7 +93,7 @@
   }
 
   function startGame() {
-    if (player1CharacterSelected !== null && player2CharacterSelected !== null) {
+    if (player1CharacterSelected !== null && player2CharacterSelected !== "") {
       pubSub.emit("playGetReadyAudio", null);
       pubSub.emit("hide-arrows", null);
       document.body.removeChild(charactersBar);
