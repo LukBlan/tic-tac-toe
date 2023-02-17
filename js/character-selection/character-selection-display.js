@@ -6,7 +6,6 @@
   let player2CharacterSelected = "";
 
   pubSub.subscribe("goToCharacterSelection", renderCharacterSelectionScreen);
-  pubSub.subscribe("lock-character-selection", removeCharacterSelectionEvent);
 
   charactersBar.addEventListener("mouseover", displayCharacterOnPlayer);
   charactersBar.addEventListener("mouseout", removeCharacterPreview);
@@ -58,12 +57,6 @@
     element.classList.remove("selected-character");
     element.classList.remove("blue-border");
     element.classList.remove("red-border");
-  }
-
-  function removeCharacterSelectionEvent() {
-    charactersBar.removeEventListener("mouseover", displayCharacterOnPlayer);
-    charactersBar.removeEventListener("click", selectCharacter);
-    charactersBar.removeEventListener("mouseout", removeCharacterPreview);
   }
 
   function removeCharacterPreview(event) {
