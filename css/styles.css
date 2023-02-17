@@ -214,7 +214,7 @@ body {
 }
 
 .character-bar > img {
-  border: 2px solid rgb(215,215,215);
+  border: 2px solid black;
   width: 75px;
   height: 75px;
   opacity: 0.4;
@@ -222,6 +222,7 @@ body {
 }
 
 .character-bar > img:hover {
+  border-color: rgb(215,215,215);
   opacity: 1;
 }
 
