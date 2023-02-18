@@ -1,6 +1,6 @@
 const playerSelectionDisplay = (function() {
-  const player1Box = playerSelectionFactory.newPlayerBox("blue-border", "Player 1");
-  const player2Box = playerSelectionFactory.newOpponentBox("red-border", "Player 2");
+  const player1Box = playerSelectionFactory.newPlayerBox("blue-border");
+  const player2Box = playerSelectionFactory.newOpponentBox("red-border");
   const player1Image = player1Box.querySelector("img");
   const player2Image = player2Box.querySelector("img");
   const player1CharacterName = player1Box.querySelector(".character-name");
@@ -12,6 +12,18 @@ const playerSelectionDisplay = (function() {
   pubSub.subscribe("characterSelected", selectCharacter);
   pubSub.subscribe("removeCharacterPreview", removePreview);
   pubSub.subscribe("resetPlayerChoice", resetPlayer);
+  pubSub.subscribe("createPlayers", createPlayers);
+
+  function createPlayers() {
+    const player1 = playerFactory.newPlayer("Player", player1CharacterName.innerText, "blue-border", 1);
+    const player2 = playerFactory.newPlayer(
+      opponentOptionDisplay.getCurrentDifficulty(),
+      player1CharacterName.innerText,
+      "blue-border",
+      2
+    )
+    pubSub.emit("startGame", {player1, player2});
+  }
 
   function resetPlayer(imgSrc) {
     if (imgSrc === player1Image.src) {

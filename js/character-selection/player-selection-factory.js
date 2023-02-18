@@ -1,7 +1,7 @@
 const playerSelectionFactory = (function() {
-  function newPlayerBox(iconBorderClass, playerName) {
+  function newPlayerBox(iconBorderClass) {
     const container = elementsFactory.createElement("div", "player-section", null);
-    const playerType = elementsFactory.createElement("h2", "player-type", playerName);
+    const playerType = elementsFactory.createElement("h2", "player-type", "Player");
     const playerIcon = elementsFactory.createElement("img", iconBorderClass, null);
     const characterName = elementsFactory.createElement("p", "character-name", null);
     playerIcon.classList.add("player-icon")
@@ -12,8 +12,8 @@ const playerSelectionFactory = (function() {
     return container;
   }
 
-  function newOpponentBox(iconBorderClass, playerName) {
-    const container = newPlayerBox(iconBorderClass, playerName);
+  function newOpponentBox(iconBorderClass) {
+    const container = newPlayerBox(iconBorderClass);
     const leftArrow = elementsFactory.createElement("img", "left-arrow", null)
     const rightArrow = elementsFactory.createElement("img", "right-arrow", null)
     leftArrow.src = "./img/arrow-left-bold.svg"

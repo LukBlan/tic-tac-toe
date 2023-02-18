@@ -99,7 +99,7 @@
       characterSelectionBox.classList.add("huge-padding");
       setTimeout(() => {
         document.body.removeChild(characterSelectionBox);
-        pubSub.emit("startGame", null);
+        pubSub.emit("createPlayers", null);
         characterSelectionBox.classList.remove("huge-padding");
       }, 3000);
     }

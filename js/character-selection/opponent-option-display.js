@@ -3,7 +3,7 @@ const opponentOptionDisplay = (function() {
   const player2Type = player2Box.querySelector(".player-type");
   const leftArrow = player2Box.querySelector(".left-arrow");
   const rightArrow = player2Box.querySelector(".right-arrow");
-  const player2Options = ["Player 2", "Easy IA", "Hell IA"];
+  const player2Options = ["Player", "Easy IA", "Hell IA"];
 
   pubSub.subscribe("hide-arrows", hideArrows);
 

@@ -6,7 +6,7 @@ const gameSectionFactory = (function () {
   }
 
   function createGameBoard(gameBoard) {
-    const boardSize = gameState.ROW * gameState.COLUMN;
+    const boardSize = boardController.ROW * boardController.COLUMN;
     for (let i = 0; i < boardSize; i++) {
       gameBoard.append(elementsFactory.createElement("div", null, null));
     }
