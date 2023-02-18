@@ -30,24 +30,24 @@ const playerSelectionDisplay = (function() {
 
   function removePreview() {
     if (!player1CharacterSelected) {
-      player1CharacterName.innerText = "";
-      player1Image.src = "./img/question-mark.svg";
+      renderCharacterName(player1CharacterName, "");
+      renderCharacterImage(player1Image, "./img/question-mark.svg");
     }
     if (!player2CharacterSelected){
-      player2CharacterName.innerText = "";
-      player2Image.src = "./img/question-mark.svg";
+      renderCharacterName(player2CharacterName, "");
+      renderCharacterImage(player2Image, "./img/question-mark.svg");
     }
   }
 
   function selectCharacter(imgSrc) {
     const characterName = getCharacterName(imgSrc);
     if (!player1CharacterSelected) {
-      player1CharacterName.innerText = characterName;
-      player1Image.src = imgSrc;
+      renderCharacterName(player1CharacterName, characterName);
+      renderCharacterImage(player1Image, imgSrc);
       player1CharacterSelected = true;
     } else if (!player2CharacterSelected) {
-      player2CharacterName.innerText = characterName;
-      player2Image.src = imgSrc;
+      renderCharacterName(player2CharacterName, characterName);
+      renderCharacterImage(player2Image, imgSrc);
       player2CharacterSelected = true;
     }
   }
@@ -55,24 +55,32 @@ const playerSelectionDisplay = (function() {
   function displayCharacterPreview(imgSrc) {
     if (imgSrc.includes("question")) {
       if (player1CharacterSelected) {
-        player2Image.src = "./img/" + "question-mark.svg";
+        renderCharacterImage(player2Image, "./img/question-mark.svg");
       } else {
-        player1Image.src = "./img/" + "question-mark.svg";
+        renderCharacterImage(player1Image, "./img/question-mark.svg");
       }
     } else {
       const characterName = getCharacterName(imgSrc);
       if (player1CharacterSelected) {
-        player2CharacterName.innerText = characterName;
-        player2Image.src = imgSrc;
+        renderCharacterName(player1CharacterName, characterName);
+        renderCharacterImage(player2Image, imgSrc);
       } else {
-        player1Image.src = imgSrc;
-        player1CharacterName.innerText = characterName;
+        renderCharacterName(player2CharacterName, characterName);
+        renderCharacterImage(player1Image, imgSrc);
       }
     }
   }
 
   function getPlayersBox() {
     return {player1: player1Box, player2: player2Box}
+  }
+
+  function renderCharacterName(element, newName) {
+    element.innerText = newName;
+  }
+
+  function renderCharacterImage(element, imgSrc) {
+    element.src = imgSrc;
   }
 
   return {getPlayersBox}
