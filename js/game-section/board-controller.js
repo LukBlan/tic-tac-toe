@@ -60,14 +60,22 @@ const boardController = (function gameState() {
   }
 
   function nextTurn() {
-    if (!checkWinner()) {
+    if (checkWinner() || !moreCells()) {
+      alert(finalMessage)
+    } else {
       const currentPlayerTurn = playersList[currentTurn % 2];
       pubSub.emit("changeBoardColor", currentPlayerTurn);
       currentPlayerTurn.startTurn();
       currentTurn++;
-    } else {
-      alert(finalMessage)
     }
+  }
+
+  function moreCells() {
+    let moreCells =  gameBoard.flat().filter(element => element === 0).length > 0;
+    if(!moreCells) {
+      finalMessage = "Tie";
+    }
+    return moreCells;
   }
 
   function createGameBoard() {
