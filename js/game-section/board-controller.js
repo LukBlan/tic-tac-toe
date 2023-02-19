@@ -61,7 +61,9 @@ const boardController = (function gameState() {
 
   function nextTurn() {
     if (!checkWinner()) {
-      playersList[currentTurn % 2].startTurn();
+      const currentPlayerTurn = playersList[currentTurn % 2];
+      pubSub.emit("changeBoardColor", currentPlayerTurn);
+      currentPlayerTurn.startTurn();
       currentTurn++;
     } else {
       alert(finalMessage)

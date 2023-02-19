@@ -1,11 +1,23 @@
 (function boardDisplay() {
   const gameBoard = gameSectionDisplay.board;
   const boardCells = Array.from(gameBoard.children);
+  let currentBorder = null;
+  let currentShadow = null;
   let player1Image = null;
   let player2Image = null;
 
   pubSub.subscribe("newBoardState", renderBoard);
   pubSub.subscribe("startGame", generatePlayersImages);
+  pubSub.subscribe("changeBoardColor", changeBoardColor)
+
+  function changeBoardColor(player) {
+    gameBoard.classList.remove(currentBorder);
+    gameBoard.classList.remove(currentShadow);
+    currentBorder = player.characterBorder;
+    currentShadow = player.shadow;
+    gameBoard.classList.add(currentBorder);
+    gameBoard.classList.add(currentShadow);
+  }
 
   function generatePlayersImages(players) {
     player1Image = generateImage(players.player1)

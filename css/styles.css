@@ -247,7 +247,15 @@ body {
   display: grid;
   grid-template-columns: min-content min-content min-content;
   justify-content: center;
-  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  border: 7px inset;
+}
+
+.blue-shadow {
+  box-shadow: 0 0 10px blue;
+}
+
+.red-shadow {
+  box-shadow: 0 0 10px red;
 }
 
 .game-board > div {

@@ -15,12 +15,13 @@ const playerSelectionDisplay = (function() {
   pubSub.subscribe("createPlayers", createPlayers);
 
   function createPlayers() {
-    const player1 = playerFactory.newPlayer("Player", player1Image.src, "blue-border", 1);
+    const player1 = playerFactory.newPlayer("Player", player1Image.src, "blue-border", 1, "blue-shadow");
     const player2 = playerFactory.newPlayer(
       opponentOptionDisplay.getCurrentDifficulty(),
       player2Image.src,
       "red-border",
-      2
+      2,
+      "red-shadow"
     )
     pubSub.emit("startGame", {player1, player2});
   }
