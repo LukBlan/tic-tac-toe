@@ -26,7 +26,6 @@ const opponentOptionDisplay = (function() {
     let rotationFunction;
     if (arrow === leftArrow) {
       rotationFunction = (() => (((value - 1) % 3) + 3) % 3)();
-      console.log()
     } else {
       rotationFunction = (() => (value + 1) % 3)();
     }

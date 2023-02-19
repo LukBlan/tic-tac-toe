@@ -25,7 +25,6 @@ const gameSectionDisplay = (function gameSection() {
 
   function renderGameSection() {
     document.body.append(board);
-    document.body.append(menu);
   }
 
   return {board}
