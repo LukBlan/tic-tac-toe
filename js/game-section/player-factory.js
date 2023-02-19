@@ -1,8 +1,8 @@
 const playerFactory = (function() {
   const playerFunctions = {
-    "Player": function (characterName, border, number) {
+    "Player": function (characterSrc, border, number) {
        return {
-        characterSrc: `./img/${characterName}.png`,
+        characterSrc: characterSrc,
         characterBorder: border,
         choice: null,
         playerNumber: number,
@@ -22,8 +22,8 @@ const playerFactory = (function() {
     },
   }
 
-  function newPlayer(playerType, characterName, border, number) {
-    return playerFunctions[playerType](characterName, border, number);
+  function newPlayer(playerType, characterSrc, border, number) {
+    return playerFunctions[playerType](characterSrc, border, number);
   }
 
   return {newPlayer}
