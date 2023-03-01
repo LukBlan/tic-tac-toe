@@ -6,6 +6,7 @@ const opponentOptionDisplay = (function() {
   const player2Options = ["Player", "Easy IA", "Hell IA"];
 
   pubSub.subscribe("hide-arrows", hideArrows);
+  pubSub.subscribe("show-arrows", showArrows);
 
   leftArrow.addEventListener("click", getNewPlayer2Type);
   rightArrow.addEventListener("click", getNewPlayer2Type);
@@ -39,6 +40,11 @@ const opponentOptionDisplay = (function() {
   function hideArrows() {
     leftArrow.classList.add("hide-element");
     rightArrow.classList.add("hide-element");
+  }
+
+  function showArrows() {
+    leftArrow.classList.remove("hide-element");
+    rightArrow.classList.remove("hide-element");
   }
 
   return {getCurrentDifficulty}

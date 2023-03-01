@@ -239,6 +239,7 @@ body {
        ------------ */
 
 .game-board {
+  cursor: pointer;
   align-self: center;
   position: relative;
   background-color: white;

@@ -123,6 +123,7 @@
         document.body.removeChild(characterSelectionBox);
         pubSub.emit("playBattleMusic", null);
         pubSub.emit("createPlayers", null);
+        pubSub.emit("show-arrows", null);
         characterSelectionBox.classList.remove("huge-padding");
         resetSelections()
       }, 3000);
