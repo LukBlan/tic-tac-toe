@@ -4,14 +4,25 @@ const gameSectionDisplay = (function gameSection() {
   const resultScreen = gameSectionFactory.getMenu();
   const resultText = resultScreen.querySelector(".result-text");
   const newGameButton = resultScreen.querySelector(".new-game-button");
+  const resetGameButton = resultScreen.querySelector(".reset-button");
   let currentPlayerMoveAction;
 
   pubSub.subscribe("startGame", renderGameSection);
   pubSub.subscribe("playerMove", letPlayerMakeAMove)
   pubSub.subscribe("disablePlayerMove", disablePlayerMove)
   pubSub.subscribe("gameOver", showGameOverScreen);
+  pubSub.subscribe("resetGame", removeResultBox);
 
   newGameButton.addEventListener("click", generateNewGame);
+  resetGameButton.addEventListener("click", resetGame)
+
+  function removeResultBox() {
+    document.body.removeChild(resultScreen);
+  }
+
+  function resetGame() {
+    pubSub.emit("resetGame", null);
+  }
 
   function generateNewGame() {
     renderGameSection();
@@ -51,5 +62,5 @@ const gameSectionDisplay = (function gameSection() {
     }
   }
 
-  return {board}
+  return {board, renderGameSection}
 })()

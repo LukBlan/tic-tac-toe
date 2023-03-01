@@ -18,7 +18,7 @@ const gameSectionFactory = (function () {
     const resultText = elementsFactory.createElement("p", "result-text", null);
     const menu = elementsFactory.createElement("div", "menu", null);
     const newGameButton = elementsFactory.createElement("button", "new-game-button", "New Game");
-    const resetButton = elementsFactory.createElement("button", null, "Reset");
+    const resetButton = elementsFactory.createElement("button", "reset-button", "Reset");
     menu.append(newGameButton);
     menu.append(resetButton);
     container.append(resultText);

@@ -9,6 +9,11 @@
   pubSub.subscribe("newBoardState", renderBoard);
   pubSub.subscribe("startGame", generateNewGame);
   pubSub.subscribe("changeBoardColor", changeBoardColor)
+  pubSub.subscribe("resetGame", resetBoardCells);
+
+  function resetBoardCells() {
+    boardCells.forEach(cell => cell.innerHTML = "")
+  }
 
   function changeBoardColor(player) {
     gameBoard.classList.remove(currentBorder);

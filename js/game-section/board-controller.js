@@ -9,6 +9,12 @@ const boardController = (function() {
   pubSub.subscribe("startGame", createGame)
   pubSub.subscribe("nextTurn", nextTurn)
   pubSub.subscribe("checkChoice", checkPlayerChoice)
+  pubSub.subscribe("resetGame", resetGame)
+
+  function resetGame() {
+    createGameBoard();
+    nextTurn()
+  }
 
   function createGame(players) {
     playersList = []
