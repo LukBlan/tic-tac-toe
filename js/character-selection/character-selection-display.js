@@ -3,7 +3,9 @@
   const charactersBar = characterSelectionFactory.getCharactersBar()
   const fightButton = charactersBar.querySelector("button");
   let player1CharacterSelected = null;
+  let player1CharacterBox = null;
   let player2CharacterSelected = "";
+  let player2CharacterBox = null;
 
   pubSub.subscribe("goToCharacterSelection", renderCharacterSelectionScreen);
 
@@ -15,7 +17,7 @@
 
   function clickCharacter(event) {
     const element = event.target;
-    const imgSrc = event.target.src;
+    const imgSrc = element.src;
     if (element.nodeName === "IMG") {
       if (imgSrc === player1CharacterSelected || imgSrc === player2CharacterSelected) {
         undoCharacterSelected(event);
@@ -31,10 +33,12 @@
     if (player1CharacterSelected === null && imgSrc !== player2CharacterSelected) {
       addColoredBorderToName(element, "blue-border");
       player1CharacterSelected = imgSrc
+      player1CharacterBox = element;
       pubSub.emit("characterSelected", imgSrc);
     } else if (player2CharacterSelected === "" && player1CharacterSelected !== imgSrc) {
       addColoredBorderToName(element, "red-border");
       player2CharacterSelected = imgSrc;
+      player2CharacterBox = element;
       pubSub.emit("characterSelected", imgSrc);
     }
   }
@@ -49,11 +53,13 @@
     const imgSrc = event.target.src;
     if (imgSrc === player1CharacterSelected) {
       player1CharacterSelected = null;
+      player1CharacterBox = null;
       pubSub.emit("resetPlayerChoice", imgSrc);
       removeBorders(element);
     } else if (imgSrc === player2CharacterSelected) {
       pubSub.emit("resetPlayerChoice", imgSrc);
       player2CharacterSelected = "";
+      player2CharacterBox = "";
       removeBorders(element);
     }
   }
@@ -91,6 +97,22 @@
     document.body.append(charactersBar);
   }
 
+  function resetSelections() {
+    player1CharacterSelected = null;
+    player2CharacterSelected = "";
+    removeSelectedCharacter(player1CharacterBox);
+    removeSelectedCharacter(player2CharacterBox);
+    player1CharacterBox = null;
+    player2CharacterBox = "";
+    playerSelectionDisplay.resetSelections()
+  }
+
+  function removeSelectedCharacter(element) {
+    element.classList.remove("selected-character");
+    element.classList.remove("blue-border");
+    element.classList.remove("red-border");
+  }
+
   function startGame() {
     if (player1CharacterSelected !== null && player2CharacterSelected !== "") {
       pubSub.emit("playGetReadyAudio", null);
@@ -102,6 +124,7 @@
         pubSub.emit("playBattleMusic", null);
         pubSub.emit("createPlayers", null);
         characterSelectionBox.classList.remove("huge-padding");
+        resetSelections()
       }, 3000);
     }
   }

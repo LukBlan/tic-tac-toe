@@ -84,6 +84,12 @@ const playerSelectionDisplay = (function() {
     }
   }
 
+  function resetSelections() {
+    player1CharacterSelected = false;
+    player2CharacterSelected = false;
+    removePreview();
+  }
+
   function getPlayersBox() {
     return {player1: player1Box, player2: player2Box}
   }
@@ -96,5 +102,5 @@ const playerSelectionDisplay = (function() {
     element.src = imgSrc;
   }
 
-  return {getPlayersBox}
+  return {getPlayersBox, resetSelections}
 })()

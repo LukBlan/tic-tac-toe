@@ -1,12 +1,31 @@
 const gameSectionDisplay = (function gameSection() {
   const board = gameSectionFactory.getGameSection();
   const boardCells = Array.from(board.childNodes)
-  const menu = gameSectionFactory.getMenu();
+  const resultScreen = gameSectionFactory.getMenu();
+  const resultText = resultScreen.querySelector(".result-text");
+  const newGameButton = resultScreen.querySelector(".new-game-button");
   let currentPlayerMoveAction;
 
   pubSub.subscribe("startGame", renderGameSection);
   pubSub.subscribe("playerMove", letPlayerMakeAMove)
   pubSub.subscribe("disablePlayerMove", disablePlayerMove)
+  pubSub.subscribe("gameOver", showGameOverScreen);
+
+  newGameButton.addEventListener("click", generateNewGame);
+
+  function generateNewGame() {
+    renderGameSection();
+    pubSub.emit("goToCharacterSelection", null);
+  }
+
+  function showGameOverScreen(finalResult) {
+    resultText.innerText = finalResult;
+    document.body.append(resultScreen);
+    setTimeout(() => {
+      resultScreen.classList.remove("hide-element");
+    }, 1)
+
+  }
 
   function letPlayerMakeAMove(currentPlayer) {
     currentPlayerMoveAction = currentPlayer;
@@ -24,7 +43,12 @@ const gameSectionDisplay = (function gameSection() {
   }
 
   function renderGameSection() {
-    document.body.append(board);
+    if (document.body.contains(board)) {
+      document.body.removeChild(board);
+      document.body.removeChild(resultScreen);
+    } else {
+      document.body.append(board);
+    }
   }
 
   return {board}

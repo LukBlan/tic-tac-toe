@@ -7,7 +7,7 @@
   let player2Image = null;
 
   pubSub.subscribe("newBoardState", renderBoard);
-  pubSub.subscribe("startGame", generatePlayersImages);
+  pubSub.subscribe("startGame", generateNewGame);
   pubSub.subscribe("changeBoardColor", changeBoardColor)
 
   function changeBoardColor(player) {
@@ -19,7 +19,8 @@
     gameBoard.classList.add(currentShadow);
   }
 
-  function generatePlayersImages(players) {
+  function generateNewGame(players) {
+    boardCells.forEach(cell => cell.innerHTML = "")
     player1Image = generateImage(players.player1)
     player2Image = generateImage(players.player2)
   }

@@ -25,6 +25,9 @@
   }
 
   function playMusic(musicTrack) {
+    if (currentMusic != null) {
+      currentMusic.pause()
+    }
     musicTrack.muted = muteAudio;
     musicTrack.currentTime = 0;
     musicTrack.volume = 1;
@@ -35,7 +38,7 @@
 
 
   function playGetReady() {
-    characterSelection.pause();
+    currentMusic.pause()
     getReady.muted = muteAudio;
     getReady.currentTime = 0;
     getReady.volume = 1;

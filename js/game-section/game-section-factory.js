@@ -14,12 +14,17 @@ const gameSectionFactory = (function () {
   }
 
   function getMenu() {
+    const container = elementsFactory.createElement("div", "result-screen", null);
+    const resultText = elementsFactory.createElement("p", "result-text", null);
     const menu = elementsFactory.createElement("div", "menu", null);
-    const newGameButton = elementsFactory.createElement("button", "character-selection-button", "New Game");
+    const newGameButton = elementsFactory.createElement("button", "new-game-button", "New Game");
     const resetButton = elementsFactory.createElement("button", null, "Reset");
     menu.append(newGameButton);
     menu.append(resetButton);
-    return menu;
+    container.append(resultText);
+    container.append(menu);
+    container.classList.add("hide-element");
+    return container;
   }
   return {getGameSection, getMenu}
 })()

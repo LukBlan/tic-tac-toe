@@ -1,6 +1,6 @@
-const boardController = (function gameState() {
-  const playersList = [];
-  const gameBoard = [];
+const boardController = (function() {
+  let playersList = [];
+  let gameBoard = [];
   const ROW = 3;
   const COLUMN = 3;
   let currentTurn = 0;
@@ -11,6 +11,7 @@ const boardController = (function gameState() {
   pubSub.subscribe("checkChoice", checkPlayerChoice)
 
   function createGame(players) {
+    playersList = []
     playersList.push(players.player1);
     playersList.push(players.player2);
     createGameBoard();
@@ -61,7 +62,7 @@ const boardController = (function gameState() {
 
   function nextTurn() {
     if (checkWinner() || !moreCells()) {
-      alert(finalMessage)
+      pubSub.emit("gameOver", finalMessage);
     } else {
       const currentPlayerTurn = playersList[currentTurn % 2];
       pubSub.emit("changeBoardColor", currentPlayerTurn);
@@ -79,6 +80,7 @@ const boardController = (function gameState() {
   }
 
   function createGameBoard() {
+    gameBoard = [];
     for (let i = 0; i < ROW; i++) {
       gameBoard.push([]);
       for (let j = 0; j < COLUMN; j++) {
