@@ -4,23 +4,29 @@ const opponentOptionDisplay = (function() {
   const leftArrow = player2Box.querySelector(".left-arrow");
   const rightArrow = player2Box.querySelector(".right-arrow");
   const player2Options = ["Player", "Easy IA", "Hell IA"];
+  let currentDifficulty = "Player"
 
   pubSub.subscribe("hide-arrows", hideArrows);
   pubSub.subscribe("show-arrows", showArrows);
+  pubSub.subscribe("goToCharacterSelection", resetCurrentDifficulty)
 
   leftArrow.addEventListener("click", getNewPlayer2Type);
   rightArrow.addEventListener("click", getNewPlayer2Type);
 
+  function resetCurrentDifficulty() {
+    currentDifficulty = "Player";
+    renderNewType()
+  }
+
   function getCurrentDifficulty() {
-    return player2Type.innerText;
+    return currentDifficulty;
   }
 
   function getNewPlayer2Type(event) {
-    const currenType = player2Type.innerText;
-    const currenTypePosition = player2Options.indexOf(currenType);
+    const currenTypePosition = player2Options.indexOf(currentDifficulty);
     const newTypePosition = rotation(event.target, currenTypePosition);
-    const newType = player2Options[newTypePosition];
-    renderNewType(newType)
+    currentDifficulty = player2Options[newTypePosition];
+    renderNewType()
   }
 
   function rotation(arrow, value) {
@@ -33,8 +39,8 @@ const opponentOptionDisplay = (function() {
     return rotationFunction;
   }
 
-  function renderNewType(newType) {
-    player2Type.innerText = newType;
+  function renderNewType() {
+    player2Type.innerText = currentDifficulty;
   }
 
   function hideArrows() {
