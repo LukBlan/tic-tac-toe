@@ -12,6 +12,14 @@ const gameSectionDisplay = (function gameSection() {
   pubSub.subscribe("disablePlayerMove", disablePlayerMove)
   pubSub.subscribe("gameOver", showGameOverScreen);
   pubSub.subscribe("resetGame", removeResultBox);
+  pubSub.subscribe("computerRandomMove", generateRandomMove);
+
+  function generateRandomMove(computerIa) {
+    const remainingCells = boardCells.filter(cell => cell.innerHTML === "");
+    const choice = remainingCells[Math.floor(Math.random() * remainingCells.length)]
+    const choicePosition = boardCells.indexOf(choice);
+    computerIa.makeMove(choicePosition);
+  }
 
   newGameButton.addEventListener("click", generateNewGame);
   resetGameButton.addEventListener("click", resetGame)

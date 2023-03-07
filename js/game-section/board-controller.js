@@ -1,9 +1,10 @@
 const boardController = (function() {
+  let players = {}
   let playersList = [];
   let gameBoard = [];
   const ROW = 3;
   const COLUMN = 3;
-  let currentTurn = 0;
+  let currentTurn = -1;
   let finalMessage = "";
 
   pubSub.subscribe("startGame", createGame)
@@ -12,11 +13,12 @@ const boardController = (function() {
   pubSub.subscribe("resetGame", resetGame)
 
   function resetGame() {
-    createGameBoard();
-    nextTurn()
+    createGame(players);
   }
 
-  function createGame(players) {
+  function createGame(newPlayers) {
+    players = newPlayers;
+    currentTurn = -1;
     playersList = []
     playersList.push(players.player1);
     playersList.push(players.player2);
@@ -70,10 +72,11 @@ const boardController = (function() {
     if (checkWinner() || !moreCells()) {
       pubSub.emit("gameOver", finalMessage);
     } else {
+      currentTurn++;
       const currentPlayerTurn = playersList[currentTurn % 2];
       pubSub.emit("changeBoardColor", currentPlayerTurn);
       currentPlayerTurn.startTurn();
-      currentTurn++;
+
     }
   }
 
