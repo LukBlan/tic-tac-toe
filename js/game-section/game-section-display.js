@@ -18,6 +18,7 @@ const gameSectionDisplay = (function gameSection() {
 
   function removeResultBox() {
     document.body.removeChild(resultScreen);
+    resultScreen.classList.add("hide-element");
   }
 
   function resetGame() {
@@ -25,6 +26,7 @@ const gameSectionDisplay = (function gameSection() {
   }
 
   function generateNewGame() {
+    removeResultBox();
     renderGameSection();
     pubSub.emit("goToCharacterSelection", null);
   }
@@ -56,7 +58,6 @@ const gameSectionDisplay = (function gameSection() {
   function renderGameSection() {
     if (document.body.contains(board)) {
       document.body.removeChild(board);
-      document.body.removeChild(resultScreen);
     } else {
       document.body.append(board);
     }
