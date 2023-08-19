@@ -342,8 +342,25 @@ button {
   padding: 14px 10px;
 }
 
+
 button:hover {
   background-color: #1010d2;
+}
+
+.start-game-button {
+  position: relative;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border: 1px solid black;
+  padding: 7px 10px;
+  box-shadow: 0 5px 1px blue;
+}
+
+.start-game-button:active {
+  box-shadow: 0 2px 1px blue;
+  top: 2px;
 }
 
 .new-game-button {
