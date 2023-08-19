@@ -347,34 +347,25 @@ button:hover {
   background-color: #1010d2;
 }
 
-.start-game-button {
+.blue-button {
   position: relative;
-  background-color: blue;
-  color: white;
-  cursor: pointer;
-  font-weight: bold;
-  border: 1px solid black;
-  padding: 7px 10px;
-  box-shadow: 0 5px 1px blue;
-}
-
-.start-game-button:active {
-  box-shadow: 0 2px 1px blue;
-  top: 2px;
-}
-
-.new-game-button {
-  white-space: break-spaces;
-}
-
-.fight-button {
   align-self: center;
   font-family: 'Archivo Black', sans-serif;
   background-color: blue;
   color: white;
   font-weight: bold;
   padding: 8px 12px;
-  box-shadow: 0 0 1px black;
+  border: 1px black solid;
+  box-shadow: 0 4px 1px rgba(0,0,255, 0.5);
+}
+
+.blue-button:active {
+  box-shadow: 0 2px 1px rgba(0,0,255, 0.5);
+  top: 2px;
+}
+
+.new-game-button {
+  white-space: break-spaces;
 }
 
 .music-button {
