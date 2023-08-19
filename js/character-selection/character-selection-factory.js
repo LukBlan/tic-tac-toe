@@ -12,7 +12,7 @@ const characterSelectionFactory = (function() {
 
   function getCharactersBar() {
     const container = elementsFactory.createElement("div", "character-bar-section", null);
-    const readyButton = elementsFactory.createElement("button", "blue-button", "Fight!");
+    const readyButton = elementsFactory.createElement("button", "red-button", "Fight!");
     const characterBar = elementsFactory.createElement("div", "character-bar", null);
     const charactersNames = ["alex", "roger", "alisa", "mokujin", "d-jin", "nina", "a-king",
       "asuka", "ganryu", "king", "marshall", "xiaoyu", "jin", "kazuya", "kuma", "miharu",

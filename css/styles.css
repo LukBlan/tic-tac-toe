@@ -342,25 +342,20 @@ button {
   padding: 14px 10px;
 }
 
-
-button:hover {
-  background-color: #1010d2;
-}
-
-.blue-button {
+.red-button {
   position: relative;
   align-self: center;
   font-family: 'Archivo Black', sans-serif;
-  background-color: blue;
+  background-color: red;
   color: white;
   font-weight: bold;
   padding: 8px 12px;
   border: 1px black solid;
-  box-shadow: 0 4px 1px rgba(0,0,255, 0.5);
+  box-shadow: 0 4px 1px rgba(255,0,0,0.5);
 }
 
-.blue-button:active {
-  box-shadow: 0 2px 1px rgba(0,0,255, 0.5);
+.red-button:active {
+  box-shadow: 0 2px 1px rgba(255,0,0,0.5);
   top: 2px;
 }
 
