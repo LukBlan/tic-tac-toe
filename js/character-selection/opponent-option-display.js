@@ -3,7 +3,7 @@ const opponentOptionDisplay = (function() {
   const player2Type = player2Box.querySelector(".player-type");
   const leftArrow = player2Box.querySelector(".left-arrow");
   const rightArrow = player2Box.querySelector(".right-arrow");
-  const player2Options = ["Player", "Easy IA", "Hell IA"];
+  const player2Options = ["Player", "Easy IA"];
   let currentDifficulty = "Player"
 
   pubSub.subscribe("hide-arrows", hideArrows);
@@ -32,9 +32,9 @@ const opponentOptionDisplay = (function() {
   function rotation(arrow, value) {
     let rotationFunction;
     if (arrow === leftArrow) {
-      rotationFunction = (() => (((value - 1) % 3) + 3) % 3)();
+      rotationFunction = (() => (((value - 1) % 2) + 2) % 2)();
     } else {
-      rotationFunction = (() => (value + 1) % 3)();
+      rotationFunction = (() => (value + 1) % 2)();
     }
     return rotationFunction;
   }
