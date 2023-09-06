@@ -92,7 +92,16 @@ body {
   justify-content: center;
   gap: 20px;
   transition: 3s;
+  animation: showOnScreen 0.5s ease-in-out;
 }
+
+@keyframes showOnScreen {
+  0% {
+    transform: translateY(-200%);
+  }
+}
+
+
 
 .player-section {
   position: relative;
@@ -194,11 +203,30 @@ body {
 }
 
 .character-bar {
+  background-color: rgba(255, 255, 255, 0.1);
   align-self: center;
   display: grid;
   grid-template-columns: repeat(10, min-content);
   border: 8px ridge rgba(225,225,225);
   border-radius: 15px;
+  animation: showFromLeft 0.5s ease-in-out;
+}
+
+@keyframes showFromLeft {
+  0% {
+    transform: translateX(-200%);
+  }
+}
+
+
+.character-bar > img {
+  border: 2px solid black;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  opacity: 0;
+  transform-origin: top center;
+  animation: showElement 0.5s ease-in-out 0.5s forwards;
 }
 
 .character-bar img:nth-child(1) {
@@ -217,17 +245,15 @@ body {
   border-radius: 0 0 6px 0;
 }
 
-.character-bar > img {
-  border: 2px solid black;
-  width: 75px;
-  height: 75px;
-  opacity: 0.4;
-  cursor: pointer;
+@keyframes showElement {
+  100% {
+    opacity: 0.4;
+  }
 }
 
 .character-bar > img:hover {
   border-color: rgb(215,215,215);
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 .selected-character {
