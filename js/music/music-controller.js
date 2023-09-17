@@ -1,4 +1,4 @@
-// Responsible for Stopping, Muting and Playing Music
+// Responsible for Playing and Muting Music
 (function musicController() {
   let muteAudio = false;
   let currentMusic = null;
