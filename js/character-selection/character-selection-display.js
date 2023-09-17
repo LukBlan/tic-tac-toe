@@ -92,7 +92,7 @@
   }
 
   function renderCharacterSelectionScreen() {
-    pubSub.emit("playCharacterSelectionMusic", null);
+    pubSub.emit("playMusic", "character-selection");
     document.body.append(characterSelectionBox);
     document.body.append(charactersBar);
   }
@@ -115,13 +115,13 @@
 
   function startGame() {
     if (player1CharacterSelected !== null && player2CharacterSelected !== "") {
-      pubSub.emit("playGetReadyAudio", null);
+      pubSub.emit("playMusic", "get-ready");
       pubSub.emit("hide-arrows", null);
       document.body.removeChild(charactersBar);
       characterSelectionBox.classList.add("huge-padding");
       setTimeout(() => {
         document.body.removeChild(characterSelectionBox);
-        pubSub.emit("playBattleMusic", null);
+        pubSub.emit("playMusic", "battle-music");
         pubSub.emit("createPlayers", null);
         pubSub.emit("show-arrows", null);
         characterSelectionBox.classList.remove("huge-padding");

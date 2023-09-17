@@ -1,48 +1,27 @@
 // Responsible for Stopping, Muting and Playing Music
 (function musicController() {
   let muteAudio = false;
-  const getReady = new Audio('./sounds/get-ready.mp3');
-  const characterSelection = new Audio('./sounds/character-selection.mp3');
-  const battleMusic = new Audio('./sounds/battle-music.mp3');
   let currentMusic = null;
 
-  pubSub.subscribe("playCharacterSelectionMusic", playCharacterSelection)
-  pubSub.subscribe("playGetReadyAudio", playGetReady)
   pubSub.subscribe("toggleMusic", toggleMusic);
-  pubSub.subscribe("playBattleMusic", playBattleMusic);
+  pubSub.subscribe("playMusic", playMusic);
 
   function toggleMusic() {
     muteAudio = !muteAudio;
     currentMusic.muted = muteAudio;
   }
 
-  function playBattleMusic() {
-    playMusic(battleMusic)
-  }
-
-  function playCharacterSelection() {
-    playMusic(characterSelection);
-  }
-
   function playMusic(musicTrack) {
+    const music = musicRepo.getMusic(musicTrack);
     if (currentMusic != null) {
-      currentMusic.pause()
+      currentMusic.pause();
     }
-    musicTrack.muted = muteAudio;
-    musicTrack.currentTime = 0;
-    musicTrack.volume = 1;
-    musicTrack.loop = true;
-    currentMusic = musicTrack
-    musicTrack.play();
+    music.muted = muteAudio;
+    music.currentTime = 0;
+    music.volume = 1;
+    music.loop = true;
+    currentMusic = music
+    music.play();
   }
 
-
-  function playGetReady() {
-    currentMusic.pause()
-    getReady.muted = muteAudio;
-    getReady.currentTime = 0;
-    getReady.volume = 1;
-    currentMusic = getReady
-    getReady.play();
-  }
 })()
