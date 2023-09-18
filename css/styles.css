@@ -95,30 +95,11 @@ body {
   animation: moveTopToCenter 0.5s ease-in-out;
 }
 
-@keyframes moveTopToCenter {
-  0% {
-    transform: translateY(-200%);
-  }
-}
-
 .player-choice-section > div {
   opacity: 0;
   transform: translateY(-200%);
-  animation: scaleElements 0.5s 0.5s ease-in-out forwards;
+  animation: shortMoveFromTop 0.5s 0.5s ease-in-out forwards;
 }
-
-@keyframes scaleElements {
-  25% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
 
 .player-section {
   position: relative;
@@ -181,6 +162,9 @@ body {
   bottom: 1.5%;
   border: 1px solid rgba(255,255,255,0.5);
   box-shadow: 0 3px 1px rgba(0,0,0,1.5);
+  opacity: 0;
+  transform: scale(0);
+  animation: scaleElement 0.5s 1s cubic-bezier(0, 0.93, 0.95, 1.45) forwards;
 }
 
 .left-arrow:active,
@@ -230,12 +214,6 @@ body {
   animation: showFromLeft 0.5s ease-in-out;
 }
 
-@keyframes showFromLeft {
-  0% {
-    transform: translateX(-200%);
-  }
-}
-
 .character-bar > img {
   border: 2px solid black;
   width: 75px;
@@ -260,14 +238,6 @@ body {
 
 .character-bar img:nth-child(20) {
   border-radius: 0 0 6px 0;
-}
-
-@keyframes showElement {
-  100% {
-    pointer-events: all;
-    opacity: 0.4;
-    z-index: 1;
-  }
 }
 
 .character-bar > img:hover {
@@ -430,4 +400,44 @@ button {
   position: absolute;
   width: 30px;
   height: 30px;
+}
+
+/*            KeyFrames           */
+@keyframes moveTopToCenter {
+  0% {
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes shortMoveFromTop {
+  25% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+
+@keyframes showFromLeft {
+  0% {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes showElement {
+  100% {
+    pointer-events: all;
+    opacity: 0.4;
+  }
+}
+
+@keyframes scaleElement {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
