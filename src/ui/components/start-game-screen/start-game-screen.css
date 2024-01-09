@@ -1,4 +1,8 @@
 .start-game-screen {
     background: url(../public/img/tekken-background.jpg) no-repeat;
     background-size: cover;
+    display: grid;
+    justify-content: center;
+    align-content: end;
+    padding: 20px;
 }

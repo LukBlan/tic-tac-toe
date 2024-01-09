@@ -1,0 +1,18 @@
+.red-button {
+    cursor: pointer;
+    font-family: 'arcade-classic', sans-serif;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 9px 6px;
+    border: 1px black solid;
+    box-shadow: 0 4px 1px rgba(255,0,0,0.5);
+    white-space: break-spaces;
+    transition: 0.1s all;
+    font-size: 1.1rem;
+}
+
+.red-button:active {
+    box-shadow: 0 0 1px rgba(255,0,0,0.5);
+    transform: translateY(4px);
+}
